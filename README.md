@@ -9,3 +9,9 @@ cd project-one/deploy
 docker-compose up
 ```
 * Visit `http://localhost:8080`
+
+### Local databas settings
+* Host: mysql
+* Username: root
+* Password: root
+* Datbase Name: project1
