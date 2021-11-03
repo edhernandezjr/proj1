@@ -8,3 +8,4 @@ git clone git@github.com:ardeearam/project-one.git
 cd project-one/deploy
 docker-compose up
 ```
+* Visit `http://localhost:8080`
