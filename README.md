@@ -15,3 +15,6 @@ docker-compose up
 * Username: root
 * Password: root
 * Datbase Name: project1
+
+![image](https://user-images.githubusercontent.com/1546228/140078601-e6c38538-a486-4ff4-81e1-c0dda35d7d81.png)
+
