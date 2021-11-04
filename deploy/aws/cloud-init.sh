@@ -23,3 +23,7 @@ chmod 0600 ~/.ssh/project1
 echo -e "Host github.com\n\tHostName github.com\n\tIdentityFile ~/.ssh/project1" >> ~/.ssh/config
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 git clone git@github.com:ardeearam/project-one.git
+
+#Start docker process
+cd /project-one/deploy
+./prod.sh

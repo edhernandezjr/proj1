@@ -3,7 +3,7 @@ services:
   web:
     image: nginx:1.21.3
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ../src:/code
       - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
