@@ -1,28 +1,66 @@
 <div id="mw-wrapper" class="min-h-screen">
 	{{>Navigation}}
-	<div class="mw-body" id="content" role="main">
-		[[File:leni-logo-landscape.png]]
-		[[File:Example.jpg|20px|link=MediaWiki]]
-		<div id="siteNotice">{{{html-site-notice}}}</div>
-		{{{html-user-message}}}
-		<div class="mw-indicators mw-body-content">
-		{{#array-indicators}}
-		<div id="{{id}}" class="{{class}}">{{{html}}}</div>
-		{{/array-indicators}}
+	<main class="mt-16 md:mt-20">
+		<!--Hero Component-->
+		<div class="relative text-white">
+            	<img alt="Our story" class="absolute inset-0 object-cover w-full h-full" style="z-index: -1" loading="lazy" srcset="https://scontent.fcrk1-2.fna.fbcdn.net/v/t39.30808-6/254579233_441296520686123_7054597398768948874_n.jpg?_nc_cat=1&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeFeGnGqjWC_lY8SgcV2DAkQq-rmQDsoGj6r6uZAOygaPjzjFR5GcFttkMRXqMStxPllkZF7FBgG004njq_UdqQ7&_nc_ohc=wjSGkiC__EwAX9YMqYg&_nc_ht=scontent.fcrk1-2.fna&oh=5bbc7debc51b4e1117cfece78a6df1dc&oe=618FAC3F" width="1920" height="1080">
+				<span class="absolute inset-0 bg-pink-600 bg-opacity-40" style="z-index: -1"></span>
+				<div class="container max-w-4xl py-8 mx-auto">
+					<div class="mx-auto my-8 text-center sm:w-2/3 md:my-16 lg:my-36">
+						{{#data-search-box}}
+						<form action="{{form-action}}" role="search" class="flex flex-row justify-center mw-portlet" id="p-search">
+							<input type="hidden" name="title" value="{{page-title}}">
+							{{{html-input}}}
+							{{{html-button-search}}}
+						</form>
+						{{/data-search-box}}
+					</div>
+				</div>
 		</div>
-		<h1 class="firstHeading" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
-		<div id="siteSub">{{msg-tagline}}</div>
-		<div class="mw-body-content">
-			<div id="contentSub">
-				{{{html-subtitle}}}
-				{{{html-undelete-link}}}
+		<div class="flex flex-col px-2 py-4 mx-auto md:max-w-6xl md:px-0 gap-y-2">
+
+			{{! Switch template context to data for all menus }}
+			<div id="data-portlets">
+				{{#data-portlets}}
+		
+				{{/data-portlets}}
 			</div>
-			{{{html-body-content}}}
-			<!-- todo: replace with .mixin-clearfix -->
-			<div class="visualClear"></div>
+
+			<div id="siteNotice">
+				{{{html-site-notice}}}
+			</div>
+			
+			{{{html-user-message}}}
+	
+			<div class="flex flex-row justify-between flex-items-center">
+				<h1 class="firstHeading" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
+				<div class="flex flex-row mw-indicators mw-body-content">
+					{{#array-indicators}}
+						<div id="{{id}}" class="{{class}}">{{{html}}}</div>
+					{{/array-indicators}}
+				</div>
+			</div>
+			
+			<div id="siteSub">{{msg-tagline}}</div>
+			
+			<!-- After Content -->
+			<div class="prose mw-body-content">
+			
+				<div id="contentSub">
+					{{{html-subtitle}}}
+					{{{html-undelete-link}}}
+				</div>
+				
+				{{{html-body-content}}}
+				
+			</div>
+											
+			<!-- Categories -->
 			{{{html-categories}}}
+			
+			<!-- After Content -->
+			{{{html-after-content}}}
 		</div>
-		{{{html-after-content}}}
-	</div>
+	</main>
 	{{>Footer}}
 </div>

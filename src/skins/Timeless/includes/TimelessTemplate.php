@@ -573,7 +573,7 @@ class TimelessTemplate extends BaseTemplate {
 				) .
 				$this->makeSearchButton(
 					'go',
-					[ 'id' => 'searchButton', 'class' => 'searchButton' ]
+					[ 'id' => 'searchButton-test', 'class' => 'searchButton-test' ]
 				)
 			)
 		);

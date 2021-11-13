@@ -12,24 +12,26 @@
 	},
 	"ValidSkinNames": {
 		"essential": {
-			"class": "SkinMustache",
-			"args": [ {
-				"name": "essential",
-				"responsive": true,
-				"templateDirectory": "skins/Essential/templates",
-				"styles": [
-					"skins.essential"
-				],
-				"messages": [
-					"sitetitle",
-					"search",
-					"tagline",
-					"navigation-heading"
-				],
-				"scripts": [
-					"skins.essential.js"
-				]
-			} ]
+			"class": "SkinEssential",
+			"args": [ 
+				{
+					"name": "essential",
+					"responsive": true,
+					"templateDirectory": "skins/Essential/templates",
+					"styles": [
+						"skins.essential"
+					],
+					"scripts": [
+						"skins.essential.js"
+					],
+					"messages": [
+						"sitetitle",
+						"search",
+						"tagline",
+						"navigation-heading"
+					]
+				} 
+			]
 		}
 	},
 	"MessagesDirs": {
@@ -45,7 +47,7 @@
 		},
 		"skins.essential.js": {
 			"scripts": [
-				"resources/js/main.js"
+				"resources/js/app.min.js"
 			]
 		}
 	},
@@ -58,5 +60,11 @@
 			"+ext.echo.styles.badge": "resources/extensions/echo.styles.badge.less"
 		}
 	},
-	"manifest_version": 1
+	"manifest_version": 1,
+	"AutoloadClasses": {
+		"SkinEssential": "includes/SkinEssential.php"
+	},
+	"AutoloadNamespaces": {
+		"Essential\\": "includes/"
+	}
 }

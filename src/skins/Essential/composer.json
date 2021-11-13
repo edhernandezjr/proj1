@@ -18,5 +18,10 @@
 		],
 		"phan": "phan -d . --long-progress-bar",
 		"phpcs": "phpcs -sp"
-	}
+	},
+	"autoload": {
+        "psr-4": {
+            "Essential\\": "includes/"
+        }
+    }
 }

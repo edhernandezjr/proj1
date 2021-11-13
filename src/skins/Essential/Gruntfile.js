@@ -7,6 +7,16 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( '@lodder/grunt-postcss' );
 
 	grunt.initConfig( {
+		pkg: grunt.file.readJSON( 'package.json' ),
+		uglify: {
+			build: {
+				src: [
+					'node_modules/alpinejs/dist/cdn.js',
+					'resources/js/app.js'
+				],
+				dest: 'resources/js/app.min.js'
+			}
+		},
 		eslint: {
 			options: {
 				cache: true
@@ -14,7 +24,8 @@ module.exports = function ( grunt ) {
 			all: [
 				'**/*.{js,json}',
 				'!node_modules/**',
-				'!vendor/**'
+				'!vendor/**',
+				'!**/*.min.{js,json}'
 			]
 		},
 		banana: {
@@ -22,20 +33,22 @@ module.exports = function ( grunt ) {
 		},
 		stylelint: {
 			options: {
-				syntax: 'less'
+				customSyntax: 'postcss-less'
 			},
 			all: [
 				'*.{less,css}',
 				'**/*.{less,css}',
 				'!node_modules/**',
 				'!resources/libraries/**',
+				'!resources/js/**',
+				'!resources/css/**',
 				'!vendor/**',
 				'!tailwind.css'
 			]
 		},
 		postcss: {
 			options: {
-				map: true,
+				map: false,
 				processors: [
 					require( 'tailwindcss' ),
 					require( 'autoprefixer' )( {
@@ -45,6 +58,12 @@ module.exports = function ( grunt ) {
 			},
 			dist: {
 				src: 'resources/css/app.css'
+			},
+			build: {
+				src: [
+					'tailwind.css'
+				],
+				dest: 'resources/css/app.css'
 			}
 		},
 		watch: {
@@ -59,8 +78,9 @@ module.exports = function ( grunt ) {
 	} );
 
 	// Register Tasks
+	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.registerTask( 'compile-tailwindcss', [ 'postcss' ] );
 	grunt.registerTask( 'watch-tailwindcss', [ 'watch:postcss' ] );
-	grunt.registerTask( 'test', [ 'eslint', 'banana', 'stylelint' ] );
+	grunt.registerTask( 'test', [ 'eslint', 'banana', 'uglify', 'stylelint' ] );
 	grunt.registerTask( 'default', 'test' );
 };
