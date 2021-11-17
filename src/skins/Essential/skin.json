@@ -43,7 +43,15 @@
 		"skins.essential": {
 			"styles": [
 				"resources/css/app.css"
-			]
+			],
+			"features": {
+				"normalize": true,
+				"elements": true,
+				"content": true,
+				"content-parser-output": true,
+				"interface": true,
+				"logo": true
+			}
 		},
 		"skins.essential.js": {
 			"scripts": [

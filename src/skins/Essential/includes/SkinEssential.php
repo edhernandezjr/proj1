@@ -344,9 +344,9 @@ class SkinEssential extends SkinMustache {
 			),
 			'html-button-search' => $this->makeSearchButton(
 				'go',
-				[ 'id' => 'searchButton', 'class' => 'searchButton h-12 bg-pink-600 text-white uppercase px-4 font-black' ]
+				[ 'id' => 'searchButton', 'class' => 'searchButton h-14 bg-pink-leni text-white uppercase px-4 font-black' ]
 			),
-			'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput', "class" => "md:w-full w-3/4 h-12", 'placeholder' => 'Anu hanap mo?' ] ),
+			'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput', "class" => "md:w-full h-14 px-2 w-3/4 text-black-leni focus:ring focus:ring-blue-leni focus:ring-opacity-50", 'placeholder' => 'Anu hanap mo?' ] ),
 			'msg-search' => $this->msg( 'search' )->text(),
 			'page-title' => $this->getSearchPageTitle()->getPrefixedDBkey(),
 		];

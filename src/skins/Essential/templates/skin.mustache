@@ -3,8 +3,8 @@
 	<main class="mt-16 md:mt-20">
 		<!--Hero Component-->
 		<div class="relative text-white">
-            	<img alt="Our story" class="absolute inset-0 object-cover w-full h-full" style="z-index: -1" loading="lazy" srcset="https://scontent.fcrk1-2.fna.fbcdn.net/v/t39.30808-6/254579233_441296520686123_7054597398768948874_n.jpg?_nc_cat=1&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeFeGnGqjWC_lY8SgcV2DAkQq-rmQDsoGj6r6uZAOygaPjzjFR5GcFttkMRXqMStxPllkZF7FBgG004njq_UdqQ7&_nc_ohc=wjSGkiC__EwAX9YMqYg&_nc_ht=scontent.fcrk1-2.fna&oh=5bbc7debc51b4e1117cfece78a6df1dc&oe=618FAC3F" width="1920" height="1080">
-				<span class="absolute inset-0 bg-pink-600 bg-opacity-40" style="z-index: -1"></span>
+            	<img alt="Our story" class="absolute inset-0 object-cover w-full h-full" style="z-index: -1" loading="lazy" srcset="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/254579233_441296520686123_7054597398768948874_n.jpg?_nc_cat=107&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=56pP8Aizl0MAX_FppFR&_nc_ht=scontent.fcrk1-1.fna&oh=76a564216d30107da8b6d0e9ac564233&oe=61998F7F" width="1920" height="1080">
+				<span class="absolute inset-0 bg-pink-leni bg-opacity-40" style="z-index: -1"></span>
 				<div class="container max-w-4xl py-8 mx-auto">
 					<div class="mx-auto my-8 text-center sm:w-2/3 md:my-16 lg:my-36">
 						{{#data-search-box}}
@@ -17,7 +17,17 @@
 					</div>
 				</div>
 		</div>
-		<div class="flex flex-col px-2 py-4 mx-auto md:max-w-6xl md:px-0 gap-y-2">
+			
+		<div class="flex flex-col py-2 text-center md:py-4 flex-items-center">
+			<h1 class="text-2xl font-bold font-black uppercase firstHeading text-black-leni" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
+			<div class="flex flex-row mw-indicators mw-body-content">
+				{{#array-indicators}}
+					<div id="{{id}}" class="{{class}}">{{{html}}}</div>
+				{{/array-indicators}}
+			</div>
+		</div>
+		
+		<div class="flex flex-col px-2 pb-2 md:mx-auto md:pb-4 md:max-w-6xl gap-y-2">
 
 			{{! Switch template context to data for all menus }}
 			<div id="data-portlets">
@@ -31,36 +41,32 @@
 			</div>
 			
 			{{{html-user-message}}}
-	
-			<div class="flex flex-row justify-between flex-items-center">
-				<h1 class="firstHeading" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
-				<div class="flex flex-row mw-indicators mw-body-content">
-					{{#array-indicators}}
-						<div id="{{id}}" class="{{class}}">{{{html}}}</div>
-					{{/array-indicators}}
-				</div>
-			</div>
+
 			
 			<div id="siteSub">{{msg-tagline}}</div>
 			
 			<!-- After Content -->
-			<div class="prose mw-body-content">
+			<div class="mw-body-content">
 			
 				<div id="contentSub">
 					{{{html-subtitle}}}
 					{{{html-undelete-link}}}
 				</div>
-				
-				{{{html-body-content}}}
+				<div>
+					{{{html-body-content}}}
+				</div>
 				
 			</div>
-											
+			
+			<div class="mt-4">								
 			<!-- Categories -->
 			{{{html-categories}}}
+			</div>
 			
 			<!-- After Content -->
 			{{{html-after-content}}}
 		</div>
 	</main>
-	{{>Footer}}
+
 </div>
+{{>Footer}}

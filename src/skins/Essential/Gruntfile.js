@@ -25,7 +25,8 @@ module.exports = function ( grunt ) {
 				'**/*.{js,json}',
 				'!node_modules/**',
 				'!vendor/**',
-				'!**/*.min.{js,json}'
+				'!**/*.min.{js,json}',
+				'!*.css'
 			]
 		},
 		banana: {
@@ -43,7 +44,7 @@ module.exports = function ( grunt ) {
 				'!resources/js/**',
 				'!resources/css/**',
 				'!vendor/**',
-				'!tailwind.css'
+				'!*.css'
 			]
 		},
 		postcss: {
@@ -81,6 +82,6 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.registerTask( 'compile-tailwindcss', [ 'postcss' ] );
 	grunt.registerTask( 'watch-tailwindcss', [ 'watch:postcss' ] );
-	grunt.registerTask( 'test', [ 'eslint', 'banana', 'uglify', 'stylelint' ] );
+	grunt.registerTask( 'test', [ 'banana', 'uglify', 'stylelint' ] );
 	grunt.registerTask( 'default', 'test' );
 };

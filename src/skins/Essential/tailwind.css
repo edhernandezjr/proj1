@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
+    color: #fff;
+    background-color: #ce1069;
+    border-color: #ce1069;
+}
+
+.oo-ui-buttonElement-framed.oo-ui-labelElement > .oo-ui-buttonElement-button {
+    padding-top: 6.5px;
+    padding-bottom: 6.5px;
+}
+
+#mw-normal-catlinks {
+    background-color: #F3F4F6;
+    padding: 6px;
+}
+#mw-normal-catlinks  {
+    display: flex;
+    flex-direction: row;
+}
+#mw-normal-catlinks  ul {
+    margin-left: 5px;
+}
+.mw-parser-output > h2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mw-parser-output .mw-editsection a {
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.mw-parser-output .mw-editsection span {
+    font-weight: 100;
+    font-size: 12px;
+}
