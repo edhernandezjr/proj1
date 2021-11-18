@@ -1,0 +1,78 @@
+{
+	"name": "Essential",
+	"version": "1.0",
+	"author": "ashcslmn@gmail.com",
+	"url": "https://www.mediawiki.org/wiki/Skin:Essential",
+	"descriptionmsg": "essential-desc",
+	"namemsg": "skinname-essential",
+	"license-name": "CC0-1.0",
+	"type": "skin",
+	"requires": {
+		"MediaWiki": ">= 1.36.0"
+	},
+	"ValidSkinNames": {
+		"essential": {
+			"class": "SkinEssential",
+			"args": [ 
+				{
+					"name": "essential",
+					"responsive": true,
+					"templateDirectory": "skins/Essential/templates",
+					"styles": [
+						"skins.essential"
+					],
+					"scripts": [
+						"skins.essential.js"
+					],
+					"messages": [
+						"sitetitle",
+						"search",
+						"tagline",
+						"navigation-heading"
+					]
+				} 
+			]
+		}
+	},
+	"MessagesDirs": {
+		"Essential": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"skins.essential": {
+			"styles": [
+				"resources/css/app.css"
+			],
+			"features": {
+				"normalize": true,
+				"elements": true,
+				"content": true,
+				"content-parser-output": true,
+				"interface": true,
+				"logo": true
+			}
+		},
+		"skins.essential.js": {
+			"scripts": [
+				"resources/js/app.min.js"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Essential"
+	},
+	"ResourceModuleSkinStyles": {
+		"essential": {
+			"+ext.echo.styles.badge": "resources/extensions/echo.styles.badge.less"
+		}
+	},
+	"manifest_version": 1,
+	"AutoloadClasses": {
+		"SkinEssential": "includes/SkinEssential.php"
+	},
+	"AutoloadNamespaces": {
+		"Essential\\": "includes/"
+	}
+}

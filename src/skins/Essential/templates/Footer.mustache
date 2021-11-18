@@ -1,0 +1,53 @@
+<div class="text-white bg-pink-leni border-top-1">
+	<div class="container p-8 mx-auto md:max-w-4-xl lg:max-w-6xl md:px-12 md:py-8">
+		{{#data-footer}}
+		<div class="flex flex-wrap flex-auto md:flex-nowrap">
+			<div class="w-full">
+				<h2 class="mb-2 text-lg font-extrabold uppercase text-blue-leni">Lenipedia</h2>
+				<ul class="mb-8 space-y-1 text-xl">
+						<li>
+							<a href="#">
+								Project One
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								Volunteers
+							</a>
+						</li>
+				</ul>
+				
+			</div>
+
+			<div class="w-full">
+				<h2 class="mb-2 text-lg font-extrabold uppercase text-blue-leni">Lenipedia</h2>
+				<ul class="mb-8 space-y-1 text-xl">
+						<li>
+							<a href="?title=Special:Categories">
+								Categories
+							</a>
+						</li>
+						<li>
+							<a href="?title=Articles">
+								Articles
+							</a>
+						</li>
+				</ul>
+			</div>
+
+			<div class="w-full">
+				<h2 class="mb-2 text-lg font-extrabold uppercase text-blue-leni">Legal</h2>
+				{{!}}{{#data-places}}{{>FooterList}}{{/data-places}}	
+			</div>
+			{{! <div class="flex w-full md:justify-end">
+				<img alt="" class="mb-8 w-28 h-28" width="112px" height="112px" loading="lazy"
+					src="https://drive.google.com/uc?export=view&id=16Tfi3ZCYzi7YKt-pBqC-RKcAxHrcT_NM">
+			</div> }}
+		</div>
+		{{/data-footer}}
+	</div>
+	<div class="py-2 bg-pink-700 text-black-leni">
+	<!-- Copy right -->
+		<p class="my-2 text-center">© Lenipedia 2021 | All rights reserved.</p>
+	</div>
+</div>
