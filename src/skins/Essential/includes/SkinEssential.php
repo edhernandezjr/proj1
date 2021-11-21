@@ -170,7 +170,11 @@ class SkinEssential extends SkinMustache {
 
 			// links
 			'link-mainpage' => Title::newMainPage()->getLocalUrl(),
+			'islogin' => $this->getUser()->isRegistered(),
+			'like' => false,
 		];
+
+		// die(var_dump($data));
 
 		foreach ( $this->options['messages'] ?? [] as $message ) {
 			$data["msg-{$message}"] = $this->msg( $message )->text();
@@ -247,6 +251,7 @@ class SkinEssential extends SkinMustache {
 	 */
 	private function getFooterTemplateData() : array {
 		$data = [];
+	
 		foreach ( $this->getFooterLinks() as $category => $links ) {
 			$items = [];
 			$rowId = "footer-$category";
@@ -273,7 +278,7 @@ class SkinEssential extends SkinMustache {
 
 		// If footer icons are enabled append to the end of the rows
 		$footerIcons = $this->getFooterIcons();
-
+	
 		if ( count( $footerIcons ) > 0 ) {
 			$icons = [];
 			foreach ( $footerIcons as $blockName => $blockIcons ) {
@@ -288,7 +293,7 @@ class SkinEssential extends SkinMustache {
 					$icons[] = [
 						'name' => $block,
 						'id' => 'footer-' . $block . 'ico',
-						'html' => $html,
+						'html' => $html
 					];
 				}
 			}
@@ -344,9 +349,9 @@ class SkinEssential extends SkinMustache {
 			),
 			'html-button-search' => $this->makeSearchButton(
 				'go',
-				[ 'id' => 'searchButton', 'class' => 'searchButton h-14 bg-pink-leni text-white uppercase px-4 font-black' ]
+				[ 'id' => 'searchButton', 'class' => 'searchButton h-10 md:h-14 bg-pink-leni text-white uppercase px-4 font-black' ]
 			),
-			'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput', "class" => "md:w-full h-14 px-2 w-3/4 text-black-leni focus:ring focus:ring-blue-leni focus:ring-opacity-50", 'placeholder' => 'Anu hanap mo?' ] ),
+			'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput', "class" => "md:w-full h-10 md:h-14 px-2 w-3/4 text-black-leni focus:ring focus:ring-blue-leni focus:ring-opacity-50", 'placeholder' => 'Anu hanap mo?' ] ),
 			'msg-search' => $this->msg( 'search' )->text(),
 			'page-title' => $this->getSearchPageTitle()->getPrefixedDBkey(),
 		];

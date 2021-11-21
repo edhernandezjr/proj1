@@ -74,5 +74,9 @@
 	},
 	"AutoloadNamespaces": {
 		"Essential\\": "includes/"
+	},
+	"Hooks": {
+		"AuthChangeFormFields": "Essential\\Hooks::onAuthChangeFormFields",
+		"BeforePageDisplay": "Essential\\Hooks::onBeforePageDisplay"
 	}
 }
