@@ -42,7 +42,13 @@
     font-size: 12px;
 }
 
-a.external.text {
+a.external.text.new {
+    background-color: #F3F4F6;
+    text-decoration: underline;
+    color:#ce1069;
+}
+
+a.new {
     background-color: #F3F4F6;
     text-decoration: underline;
     color:#ce1069;
