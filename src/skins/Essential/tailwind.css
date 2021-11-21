@@ -47,3 +47,8 @@ a.external.text {
     text-decoration: underline;
     color:#ce1069;
 }
+
+/* Print footer should be hidden by default in screen. */
+.printfooter {
+	display: none;
+}
