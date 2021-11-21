@@ -76,6 +76,7 @@
 		"Essential\\": "includes/"
 	},
 	"Hooks": {
-		"AuthChangeFormFields": "Essential\\Hooks::onAuthChangeFormFields"
+		"AuthChangeFormFields": "Essential\\Hooks::onAuthChangeFormFields",
+		"BeforePageDisplay": "Essential\\Hooks::onBeforePageDisplay"
 	}
 }

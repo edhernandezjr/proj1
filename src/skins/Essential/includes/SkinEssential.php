@@ -170,7 +170,11 @@ class SkinEssential extends SkinMustache {
 
 			// links
 			'link-mainpage' => Title::newMainPage()->getLocalUrl(),
+			'islogin' => $this->getUser()->isRegistered(),
+			'like' => false,
 		];
+
+		// die(var_dump($data));
 
 		foreach ( $this->options['messages'] ?? [] as $message ) {
 			$data["msg-{$message}"] = $this->msg( $message )->text();
