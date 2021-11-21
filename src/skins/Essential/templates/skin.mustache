@@ -3,11 +3,19 @@
 	<main class="mt-16 md:mt-20">
 		<!--Hero Component-->
 		<div class="relative text-white">
-            	<img alt="Our story" class="absolute inset-0 object-cover w-full h-full" style="z-index: -1" loading="lazy" srcset="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/254579233_441296520686123_7054597398768948874_n.jpg?_nc_cat=107&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=56pP8Aizl0MAX_FppFR&_nc_ht=scontent.fcrk1-1.fna&oh=76a564216d30107da8b6d0e9ac564233&oe=61998F7F" width="1920" height="1080">
+				{{#data-logos}}
+        			{{#banneressential}}
+						<img src="{{.}}" 
+							alt="Our story" 
+							class="absolute inset-0 object-cover w-full h-full" style="z-index: -1" loading="lazy" 
+							width="1920" height="1080"
+						>
+					{{/banneressential}}
+				{{/data-logos}}				
 				<span class="absolute inset-0 bg-pink-leni bg-opacity-40" style="z-index: -1"></span>
 				<div class="container max-w-4xl py-8 mx-auto">
 					<div class="mx-auto my-8 text-center sm:w-2/3 md:my-16 lg:my-36">
-						<h3 class="my-4 text-5xl font-black tracking-wide text-white"> Kilalanin si Leni</h3>
+						<h3 class="my-4 text-2xl font-black tracking-wide text-white md:text-4xl"> Kilalanin si Leni</h3>
 						{{#data-search-box}}
 						<form action="{{form-action}}" role="search" class="flex flex-row justify-center mw-portlet" id="p-search">
 							<input type="hidden" name="title" value="{{page-title}}">
@@ -19,7 +27,7 @@
 				</div>
 		</div>
 			
-		<div class="flex flex-col py-2 mx-auto text-center md:py-4 flex-items-center md:max-w-6xl">
+		<div class="flex flex-col p-2 mx-auto text-center md:py-4 flex-items-center md:max-w-6xl">
 			<h1 class="text-2xl font-bold font-black uppercase firstHeading text-black-leni" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
 			<div class="flex flex-row mw-indicators mw-body-content">
 				{{#array-indicators}}
