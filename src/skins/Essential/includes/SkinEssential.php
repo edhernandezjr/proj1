@@ -171,7 +171,7 @@ class SkinEssential extends SkinMustache {
 			// links
 			'link-mainpage' => Title::newMainPage()->getLocalUrl(),
 			'islogin' => $this->getUser()->isRegistered(),
-			'like' => false,
+			'title' => $out->getTitle(),
 		];
 
 		// die(var_dump($data));

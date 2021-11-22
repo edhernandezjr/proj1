@@ -12,6 +12,7 @@ module.exports = function ( grunt ) {
 			build: {
 				src: [
 					'node_modules/alpinejs/dist/cdn.js',
+					'node_modules/quill/dist/quill.js',
 					'resources/js/app.js'
 				],
 				dest: 'resources/js/app.min.js'
@@ -56,9 +57,6 @@ module.exports = function ( grunt ) {
 						overrideBrowserslist: [ 'last 1 version' ]
 					} )
 				]
-			},
-			dist: {
-				src: 'resources/css/app.css'
 			},
 			build: {
 				src: [

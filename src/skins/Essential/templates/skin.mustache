@@ -6,7 +6,7 @@
 				{{#data-logos}}
         			{{#banneressential}}
 						<img src="{{.}}" 
-							alt="Our story" 
+							alt="Lenipedia" 
 							class="absolute inset-0 object-cover w-full h-full" style="z-index: -1" loading="lazy" 
 							width="1920" height="1080"
 						>
@@ -26,8 +26,41 @@
 					</div>
 				</div>
 		</div>
-			
-		<div class="flex flex-col p-2 mx-auto text-center md:py-4 flex-items-center md:max-w-2xl">
+		{{#islogin}}
+			<div class="flex flex-col text-center bg-gray-100 flex-items-center">
+				<ul class="flex flex-row gap-4 mx-auto" 
+					x-data="{
+					action: '',
+				}"
+					x-init="
+						action = sessionStorage.getItem('x-action') || '';
+					"
+				>
+					<li class="px-2 py-2" x-bind:class="{ 'border-t-4 border-pink-600': action == '' }">
+						<a @click="action=''; sessionStorage.setItem('x-action', '');"  
+							href="?title={{title}}"
+						>
+							Read
+						</a>
+					</li>
+					<li class="px-2 py-2" x-bind:class="{ 'border-t-4 border-pink-600': action == 'history' }">
+						<a @click="action='history'; sessionStorage.setItem('x-action', 'history');"
+							href="?title={{title}}&action=history"
+						>
+							History
+						</a>
+					</li>
+					<li class="px-2 py-2" x-bind:class="{ 'border-t-4 border-pink-600': action == 'edit' }">
+						<a @click="action='edit'; sessionStorage.setItem('x-action', 'edit');"
+							href="?title={{title}}&action=edit"
+						>
+							Edit
+						</a>
+					</li>
+				</ul>
+			</div>
+		{{/islogin}}	
+		<div class="flex flex-col p-2 mx-auto text-center md:py-4 flex-items-center md:max-w-4xl">
 			<h1 class="text-2xl font-bold font-black uppercase firstHeading text-black-leni" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
 			<div class="flex flex-row mw-indicators mw-body-content">
 				{{#array-indicators}}
@@ -35,8 +68,9 @@
 				{{/array-indicators}}
 			</div>
 		</div>
+
 		
-		<div class="flex flex-col px-2 pb-2 md:mx-auto md:pb-4 md:max-w-2xl gap-y-2">
+		<div id="content" class="flex flex-col px-2 py-2 md:mx-auto md:pb-4 md:max-w-4xl gap-y-2">
 
 			{{! Switch template context to data for all menus }}
 			<div id="data-portlets">
