@@ -10,8 +10,16 @@
   @apply prose my-4
 }
 
+.mw-spcontent :not(.mw-htmlform-ooui-wrapper) {
+  @apply prose
+}
+
 #mw-content-text .searchresults {
   @apply prose
+}
+
+#mw-subcategories .mw-content-ltr {
+  @apply prose my-4
 }
 
 .mw-parser-output {

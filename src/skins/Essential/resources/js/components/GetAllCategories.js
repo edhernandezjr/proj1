@@ -17,11 +17,7 @@ window.GetAllCategories = function() {
             fetch(url)
                 .then(function(response){return response.json();})
                 .then(function(response) {
-                    var categories = response.query.allcategories;
-                    for (var cat in categories) {
-                        console.log(categories[cat]["*"]);
-                    }
-                    al.data = categories;
+                    al.data = response.query.allcategories;
                 })
                 .catch(function(error){console.log(error);});
         }
