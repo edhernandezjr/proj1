@@ -11,8 +11,10 @@ module.exports = function ( grunt ) {
 		uglify: {
 			build: {
 				src: [
+					'node_modules/lazysizes/lazysizes.js',
 					'node_modules/alpinejs/dist/cdn.js',
 					'node_modules/quill/dist/quill.js',
+					'resources/js/components/*.js',
 					'resources/js/app.js'
 				],
 				dest: 'resources/js/app.min.js'

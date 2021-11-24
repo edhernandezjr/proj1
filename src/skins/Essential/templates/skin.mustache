@@ -1,32 +1,8 @@
 <div id="mw-wrapper" class="min-h-screen">
 	{{>Navigation}}
 	<main class="mt-16 md:mt-20">
-		<!--Hero Component-->
-		<div class="relative text-white">
-				{{#data-logos}}
-        			{{#banneressential}}
-						<img src="{{.}}" 
-							alt="Lenipedia" 
-							class="absolute inset-0 object-cover w-full h-full" style="z-index: -1" loading="lazy" 
-							width="1920" height="1080"
-						>
-					{{/banneressential}}
-				{{/data-logos}}				
-				<span class="absolute inset-0 bg-pink-leni bg-opacity-40" style="z-index: -1"></span>
-				<div class="container max-w-4xl py-8 mx-auto">
-					<div class="mx-auto my-8 text-center sm:w-2/3 md:my-16 lg:my-36">
-						<h3 class="my-4 text-2xl font-black tracking-wide text-white md:text-4xl"> Kilalanin si Leni</h3>
-						{{#data-search-box}}
-						<form action="{{form-action}}" role="search" class="flex flex-row justify-center mw-portlet" id="p-search">
-							<input type="hidden" name="title" value="{{page-title}}">
-							{{{html-input}}}
-							{{{html-button-search}}}
-						</form>
-						{{/data-search-box}}
-					</div>
-				</div>
-		</div>
-		{{#islogin}}
+		{{>Hero}}
+		{{#showPageToolbar}}
 			<div class="flex flex-col text-center bg-gray-100 flex-items-center">
 				<ul class="flex flex-row gap-4 mx-auto" 
 					x-data="{
@@ -59,56 +35,82 @@
 					</li>
 				</ul>
 			</div>
-		{{/islogin}}	
-		<div class="flex flex-col p-2 mx-auto text-center md:py-4 flex-items-center md:max-w-4xl">
-			<h1 class="text-2xl font-bold font-black uppercase firstHeading text-black-leni" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
-			<div class="flex flex-row mw-indicators mw-body-content">
-				{{#array-indicators}}
-					<div id="{{id}}" class="{{class}}">{{{html}}}</div>
-				{{/array-indicators}}
-			</div>
-		</div>
-
+		{{/showPageToolbar}}
 		
-		<div id="content" class="flex flex-col px-2 py-2 md:mx-auto md:pb-4 md:max-w-4xl gap-y-2">
-
-			{{! Switch template context to data for all menus }}
-			<div id="data-portlets">
-				{{#data-portlets}}
+		{{#isMainPage}}
+			<ul x-data="{ assetPath: '{{assetsPath}}', ...GetAllCategories()}" class="grid grid-cols-1 gap-2 px-2 py-16 mx-auto md:gap-4 lg:grid-cols-3 md:grid-cols-3 md:max-w-5xl md:px-0">
+				<template x-for="category in data">
+					<li>
+						<div class="flex flex-col">
+							<h3 class="py-4 text-xl font-bold uppercase white text-black-leni y-2 -z-1" x-text="category['*']"></h3>
+							<div class="relative border rounded-lg">
+								<a :href="'?title=Category:'+category['*']" class="rounded-lg">
+									<div class="aspect-w-16 aspect-h-9"></div>
+									<img class="absolute inset-0 object-cover w-full h-full rounded-lg -z-1" :src="assetPath+category['*']+'.jpeg'" width="960" height="1280">
+									
+								</a>
+							</div>
+						</div>
+					</li>
+				</template>
+			</ul>
+		{{/isMainPage}}
 		
-				{{/data-portlets}}
+		{{^isMainPage}}
+			<div class="flex flex-col p-2 mx-auto text-center md:py-4 flex-items-center md:max-w-4xl">
+				<h1 class="text-4xl font-bold font-black uppercase firstHeading text-black-leni" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
+				<div class="flex flex-row mw-indicators mw-body-content">
+					{{#array-indicators}}
+							<!-- <div id="{{id}}" class="{{class}}">{{{html}}}</div> -->
+					{{/array-indicators}}
+				</div>
 			</div>
-
-			<div id="siteNotice">
-				{{{html-site-notice}}}
-			</div>
+			<div id="content" class="flex flex-col px-2 py-2 md:mx-auto md:pb-4 md:max-w-4xl gap-y-2">
 			
-			{{{html-user-message}}}
-
+				<div id="data-portlets">
+					{{#data-portlets}}
 			
-			<div id="siteSub">{{msg-tagline}}</div>
-			
-			<!-- After Content -->
-			<div class="mx-auto mw-body-content">
-			
-				<div id="contentSub">
-					{{{html-subtitle}}}
-					{{{html-undelete-link}}}
+					{{/data-portlets}}
 				</div>
 				
-				{{{html-body-content}}}
+				<div id="siteNotice">
+					{{{html-site-notice}}}
+				</div>
 				
-			</div>
-			
-			<div class="mt-4">								
-				<!-- Categories -->
-				{{{html-categories}}}
-			</div>
-			
-			<!-- After Content -->
-			{{{html-after-content}}}
-		</div>
-	</main>
+				{{{html-user-message}}}
 
+				<!--
+				<div id="siteSub">{{msg-tagline}}</div>
+				-->
+				
+				<!-- After Content -->
+				<div class="min-w-full mx-auto mw-body-content">
+				
+					<div id="contentSub">
+						{{{html-subtitle}}}
+						{{{html-undelete-link}}}
+					</div>
+					
+					{{{html-body-content}}}
+					
+				</div>
+				
+				<!-- After Content -->
+				{{{html-after-content}}}
+			
+			</div>
+		{{/isMainPage}}
+		
+	</main>
 </div>
+
+{{^isMainPage}}
+	<div class="grid grid-cols-1 py-2 mx-auto md:grid-cols-5">								
+		<!-- Categories -->
+		<div class="md:col-start-2 md:col-span-3">
+			{{{html-categories}}}
+		</div>
+	</div>
+{{/isMainPage}}
+				
 {{>Footer}}
