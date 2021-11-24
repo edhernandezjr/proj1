@@ -1,0 +1,24 @@
+<div class="relative text-white">
+    {{#data-logos}}
+        {{#banneressential}}
+            <img src="{{.}}" 
+                alt="Lenipedia" 
+                class="absolute inset-0 object-cover w-full h-full" style="z-index: -1" loading="lazy" 
+                width="1920" height="1080"
+            >
+        {{/banneressential}}
+    {{/data-logos}}				
+    <span class="absolute inset-0 bg-pink-leni bg-opacity-40" style="z-index: -1"></span>
+    <div class="container max-w-4xl py-8 mx-auto">
+        <div class="mx-auto my-8 text-center sm:w-2/3 md:my-16 lg:my-36">
+            <h3 class="my-4 text-2xl font-black tracking-wide text-white md:text-4xl"> Kilalanin si Leni</h3>
+            {{#data-search-box}}
+            <form action="{{form-action}}" role="search" class="flex flex-row justify-center mw-portlet" id="p-search">
+                <input type="hidden" name="title" value="{{page-title}}">
+                {{{html-input}}}
+                {{{html-button-search}}}
+            </form>
+            {{/data-search-box}}
+        </div>
+    </div>
+</div>

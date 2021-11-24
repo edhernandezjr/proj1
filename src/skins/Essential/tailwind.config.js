@@ -8,15 +8,25 @@ module.exports = {
 				'blue-leni': '#031684',
 				'black-leni': '#1b1b1e'
 			}
+		},
+		zIndex: {
+			'-1': '-1',
+			0: '0',
+			10: '10',
+			20: '20',
+			30: '30',
+			40: '40',
+			50: '50',
+			auto: 'auto'
 		}
 	},
 	variants: {
+		aspectRatio: [ 'responsive' ],
 		extend: {}
 	},
 	plugins: [
-		require( '@tailwindcss/typography' )( {
-			className: 'mw-parser-output'
-		} ),
-		require( '@tailwindcss/forms' )
+		require( '@tailwindcss/typography' ),
+		require( '@tailwindcss/forms' ),
+		require( '@tailwindcss/aspect-ratio' )
 	]
 };

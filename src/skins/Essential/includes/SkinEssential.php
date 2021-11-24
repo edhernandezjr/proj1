@@ -149,7 +149,8 @@ class SkinEssential extends SkinMustache {
 		$bodyContent = $out->getHTML() . "\n" . $printSource;
 
 		$newTalksHtml = $this->getNewtalks() ?: null;
-
+		$config = $this->getConfig();
+		
 		$data = [
 			'data-logos' => $this->getLogoData(),
 			// Array objects
@@ -172,13 +173,17 @@ class SkinEssential extends SkinMustache {
 			'link-mainpage' => Title::newMainPage()->getLocalUrl(),
 			'islogin' => $this->getUser()->isRegistered(),
 			'title' => $out->getTitle(),
+			'showPageToolbar' => !preg_match('/\w+:\w+/', $out->getTitle()->prefixedText) && $this->getUser()->isRegistered() && !$this->getSkin()->getTitle()->isMainPage(),
+			'isMainPage' => $this->getSkin()->getTitle()->isMainPage(),
+			'categories' => $this->getTitle()->getParentCategories(),
+			'assetsPath' => $config->get('ResourceBasePath').'/skins/Essential/resources/images/'
 		];
-
-		// die(var_dump($data));
-
+	
+		// die(var_dump($data['showPageToolbar']));
 		foreach ( $this->options['messages'] ?? [] as $message ) {
 			$data["msg-{$message}"] = $this->msg( $message )->text();
 		}
+		
 		return $data + $this->getPortletsTemplateData() + $this->getFooterTemplateData();
 	}
 
@@ -351,7 +356,7 @@ class SkinEssential extends SkinMustache {
 				'go',
 				[ 'id' => 'searchButton', 'class' => 'searchButton h-10 md:h-14 bg-pink-leni text-white uppercase px-4 font-black' ]
 			),
-			'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput', "class" => "md:w-full h-10 md:h-14 px-2 w-3/4 text-black-leni focus:ring focus:ring-blue-leni focus:ring-opacity-50", 'placeholder' => 'Anu hanap mo?' ] ),
+			'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput', "class" => "md:w-full h-10 md:h-14 px-2 w-3/4 text-black-leni focus:ring focus:ring-blue-leni focus:ring-opacity-50", 'placeholder' => 'Ano hanap mo?' ] ),
 			'msg-search' => $this->msg( 'search' )->text(),
 			'page-title' => $this->getSearchPageTitle()->getPrefixedDBkey(),
 		];

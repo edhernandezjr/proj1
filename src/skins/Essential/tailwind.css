@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* .mw-parser-output {
+  @apply prose md:prose-xl max-w-screen-lg
+} */
+
+#mw-pages .mw-content-ltr {
+  @apply prose my-4
+}
+
+#mw-content-text .searchresults {
+  @apply prose
+}
+
+.mw-parser-output {
+  @apply prose-sm
+}
+
+#pagehistory {
+  @apply prose-sm py-4
+}
+
 .oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
     color: #fff;
     background-color: #ce1069;
