@@ -26,7 +26,14 @@
 							History
 						</a>
 					</li>
-					<li class="px-2 py-2" x-bind:class="{ 'border-t-4 border-pink-600': action == 'edit' }">
+					<li id="ca-ve-edit" class="px-2 py-2" x-bind:class="{ 'border-t-4 border-pink-600': action == 'edit' }">
+						<a @click="veaction='edit'; sessionStorage.setItem('x-action', 'edit');"
+							href="?title={{title}}&veaction=edit"
+						>
+							Create
+						</a>
+					</li>
+					<li id="ca-edit" class="px-2 py-2" x-bind:class="{ 'border-t-4 border-pink-600': action == 'edit' }">
 						<a @click="action='edit'; sessionStorage.setItem('x-action', 'edit');"
 							href="?title={{title}}&action=edit"
 						>
