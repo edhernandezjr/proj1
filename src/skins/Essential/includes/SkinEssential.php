@@ -173,7 +173,7 @@ class SkinEssential extends SkinMustache {
 			'link-mainpage' => Title::newMainPage()->getLocalUrl(),
 			'islogin' => $this->getUser()->isRegistered(),
 			'title' => $out->getTitle(),
-			'showPageToolbar' => !preg_match('/\w+:\w+/', $out->getTitle()->prefixedText) && $this->getUser()->isRegistered() && !$this->getSkin()->getTitle()->isMainPage(),
+			'showPageToolbar' => !preg_match('/Special:\w+/', $out->getTitle()->prefixedText) && $this->getUser()->isRegistered() && !$this->getSkin()->getTitle()->isMainPage(),
 			'isMainPage' => $this->getSkin()->getTitle()->isMainPage(),
 			'categories' => $this->getTitle()->getParentCategories(),
 			'assetsPath' => $config->get('ResourceBasePath').'/skins/Essential/resources/images/'
