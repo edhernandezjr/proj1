@@ -23,10 +23,12 @@
             
             <div class="items-center justify-end hidden md:flex">
                 <ul class="flex-row items-center hidden mr-4 md:flex gap-x-6" x-data="GetAllCategories(true)">
-                    <template x-for="category in data">
-                        <li class="font-bold font-black tracking-tighter text-center underline uppercase text-black-leni md:no-underline hover:underline">
-                            <a :href="'?title=Category:'+category['*']" x-text="category['*']">Biography</a>
-                        </li>
+                    <template x-if="data.length > 0">
+                        <template x-for="category in data">
+                            <li class="font-bold font-black tracking-tighter text-center underline uppercase text-black-leni md:no-underline hover:underline">
+                                <a :href="'/index.php?title=Category:'+category['*']" x-text="category['*']">Biography</a>
+                            </li>
+                        </template>
                     </template>
                 </ul>
                  <div x-data="{ open: false }" class="relative">
@@ -72,10 +74,12 @@
             x-cloak
         >
                 <ul x-data="GetAllCategories(true)">
-                    <template x-for="category in data">
-                        <li class="mb-2 text-center md:mb-3">
-                            <a :href="'?title=Category:'+category['*']" class="text-4xl font-black tracking-tighter uppercase transition-all md:text-5xl hover:text-6xl" x-text="category['*']">Biography</a>
-                        </li>
+                    <template x-if="data.length > 0">
+                        <template x-for="category in data">
+                            <li class="mb-2 text-center md:mb-3">
+                                <a :href="'/index.php?title=Category:'+category['*']" class="text-4xl font-black tracking-tighter uppercase transition-all md:text-5xl hover:text-6xl" x-text="category['*']"></a>
+                            </li>
+                        </template>
                     </template>
                 </ul>
                 
