@@ -30,7 +30,7 @@ $wgMetaNamespace = "Lenipedia";
 $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://lenipedia.localhost";
+$wgServer = "http://localhost:8080";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -58,10 +58,10 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype = "mysql";
-$wgDBserver = "localhost";
-$wgDBname = "lenipedia";
-$wgDBuser = "homestead";
-$wgDBpassword = "secret";
+$wgDBserver = "mysql";
+$wgDBname = "project1";
+$wgDBuser = "";
+$wgDBpassword = "";
 
 # MySQL specific settings
 $wgDBprefix = "";
@@ -97,7 +97,7 @@ $wgPingback = true;
 ## language locale so that the behaviour of C library functions will
 ## be consistent with typical installations. Use $wgLanguageCode to
 ## localise the wiki.
-$wgShellLocale = "en_US.UTF-8";
+$wgShellLocale = "C.UTF-8";
 
 ## Set $wgCacheDirectory to a writable directory on the web server
 ## to make your wiki go slightly faster. The directory should not
@@ -105,16 +105,16 @@ $wgShellLocale = "en_US.UTF-8";
 #$wgCacheDirectory = "$IP/cache";
 
 # Site language code, should be one of the list in ./languages/data/Names.php
-$wgLanguageCode = "en";
+$wgLanguageCode = "en-gb";
 
-$wgSecretKey = "7e0196f686cbfb52acaff8f30f1214ec85d262522a48c7d2553aa27440fd5aea";
+$wgSecretKey = "";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "96111844cb0622e5";
+$wgUpgradeKey = "";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -133,6 +133,8 @@ $wgDefaultSkin = "essential";
 
 # Enabled skins.
 # The following skins were automatically enabled:
+wfLoadSkin( 'Essential' );
+wfLoadSkin( 'Example' );
 wfLoadSkin( 'MonoBook' );
 wfLoadSkin( 'Timeless' );
 wfLoadSkin( 'Vector' );
@@ -143,12 +145,10 @@ wfLoadSkin( 'Essential' );
 wfLoadExtension( 'OpenGraphMeta' );
 
 
-$wgShowExceptionDetails = true;
-
 $wgAllowExternalImages = true;
 
 $wgAllowExternalImagesFrom = [
-	'https://project00001-public.s3.ap-southeast-1.amazonaws.com',
+	'',
 	
 ];
 
@@ -198,8 +198,16 @@ $wgGroupPermissions['*']['edit'] = false;
 wfLoadExtension( 'TinyMCE' );
 
 $wgTinyMCEEnabled = true;
-// Warning for developement only
+
+// Warning for developement only [ $wgEnableParserCache, $wgCachePages]
 $wgEnableParserCache = false;
 $wgCachePages = false;
 
 $wgGroupPermissions['user']['importupload'] = true;
+
+$wgArticlePath = "/wiki/$1";
+$wgUsePathInfo = true;
+
+# remove the creation of account
+$wgGroupPermissions['*']['createaccount'] = false;
+

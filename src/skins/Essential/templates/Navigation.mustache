@@ -37,22 +37,23 @@
                         <ul class="flex flex-col">
                                 <li class="p-2 cursor-pointer hover:bg-pink-leni hover:text-white">
                                     {{#islogin}}
-                                        <a  href="/?title=Special:UserLogout&amp;returnto=Main Page" data-mw="interface" title="Log out">
+                                        <a  href="/index.php?title=Special:UserLogout" data-mw="interface" title="Log out">
                                             Logout
                                         </a>
                                     {{/islogin}}
                                     {{^islogin}}
-                                        <a  href="/?title=Special:Login">
+                                        <a  href="/index.php?title=Special:Login">
                                             Login
                                         </a>
                                     {{/islogin}}
                                 </li>
                                 <li class="p-2 cursor-pointer hover:bg-pink-leni hover:text-white">
-                                    <a  href="/?title=Help:Contents">
+                                    <a  href="/index.php?title=Help:Contents">
                                         Help
                                     </a>
                                 </li>
-                                {{! <li class="p-2 cursor-pointer hover:bg-pink-leni hover:text-white">
+                                {{! 
+                                <li class="p-2 cursor-pointer hover:bg-pink-leni hover:text-white">
                                     <a  href="/?title=Special:CreateAccount">
                                         Join
                                     </a>

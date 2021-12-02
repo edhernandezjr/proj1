@@ -1,7 +1,7 @@
 /* eslint-disable */
 window.GetAllCategories = function($skipCats) {
     return {
-        data: ['test'],
+        data: [],
         init: function() {
             var al = this; 
             var url = window.location.origin + '/api.php'
