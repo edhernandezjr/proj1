@@ -144,6 +144,7 @@ class SkinEssential extends SkinMustache {
 	 * @return array Data for a mustache template
 	 */
 	public function getTemplateData() {
+		
 		$out = $this->getOutput();
 		$printSource = Html::rawElement( 'div', [ 'class' => 'printfooter' ], $this->printSource() );
 		$bodyContent = $out->getHTML() . "\n" . $printSource;
@@ -157,6 +158,9 @@ class SkinEssential extends SkinMustache {
 			'array-indicators' => $this->getIndicatorsData( $out->getIndicators() ),
 			// Data objects
 			'data-search-box' => $this->buildSearchProps(),
+			'links' => $config->get('ResourceLinks'),
+			'data-links' => $config->get('ResourceLinks'),
+
 			// HTML strings
 			'html-site-notice' => $this->getSiteNotice() ?: null,
 			'html-user-message' => $newTalksHtml ?
@@ -175,11 +179,9 @@ class SkinEssential extends SkinMustache {
 			'title' => $out->getTitle(),
 			'showPageToolbar' => !preg_match('/Special:\w+/', $out->getTitle()->prefixedText) && $this->getUser()->isRegistered() && !$this->getSkin()->getTitle()->isMainPage(),
 			'isMainPage' => $this->getSkin()->getTitle()->isMainPage(),
-			'categories' => $this->getTitle()->getParentCategories(),
 			'assetsPath' => $config->get('ResourceBasePath').'/skins/Essential/resources/images/'
 		];
-	
-		// die(var_dump($data['showPageToolbar']));
+		// die(var_dump(json_encode($data['data-links'])));
 		foreach ( $this->options['messages'] ?? [] as $message ) {
 			$data["msg-{$message}"] = $this->msg( $message )->text();
 		}

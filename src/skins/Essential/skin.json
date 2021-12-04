@@ -77,6 +77,8 @@
 	},
 	"Hooks": {
 		"AuthChangeFormFields": "Essential\\Hooks::onAuthChangeFormFields",
-		"BeforePageDisplay": "Essential\\Hooks::onBeforePageDisplay"
+		"BeforePageDisplay": "Essential\\Hooks::onBeforePageDisplay",
+		"OutputPageParserOutput": "Essential\\Hooks::onOutputPageParserOutput",
+		"SpecialSearchResults": "Essential\\Hooks::onSpecialSearchResults"
 	}
 }

@@ -35,37 +35,12 @@
 							Edit
 						</a>
 					</li>
-					<!--
-					<li id="ca-edit" class="px-2 py-2" x-bind:class="{ 'border-t-4 border-pink-600': action == 'edit' }">
-						<a @click="action='edit'; sessionStorage.setItem('x-action', 'edit');"
-							href="/wiki/{{title}}&action=edit"
-						>
-							Edit
-						</a>
-					</li>
-					-->
 				</ul>
 			</div>
 		{{/showPageToolbar}}
 		
 		{{#isMainPage}}
-			<ul x-data="{ assetPath: '{{assetsPath}}', ...GetAllCategories()}" class="grid grid-cols-1 gap-2 px-2 py-16 mx-auto md:gap-4 lg:grid-cols-3 md:grid-cols-3 md:max-w-5xl md:px-0">
-				<template x-if="data.length > 0">
-					<template x-for="category in data">
-						<li>
-							<div class="flex flex-col">
-								<h3 class="py-4 text-xl font-bold uppercase white text-black-leni y-2 -z-1" x-text="category['*']"></h3>
-								<div class="relative border rounded-lg">
-									<a :href="'/index.php?title=Category:'+category['*']" class="rounded-lg">
-										<div class="aspect-w-16 aspect-h-9"></div>
-										<img class="absolute inset-0 object-cover w-full h-full rounded-lg -z-1" :src="assetPath+category['*']+'.jpeg'" width="960" height="1280">
-									</a>
-								</div>
-							</div>
-						</li>
-					</template>
-				</template>
-			</ul>
+			{{!}}{{#links}}{{>Components/Card}}{{/links}}	
 		{{/isMainPage}}
 		
 		{{^isMainPage}}
@@ -106,7 +81,6 @@
 					{{{html-body-content}}}
 					
 				</div>
-				
 				<!-- After Content -->
 				{{{html-after-content}}}
 			
@@ -117,25 +91,20 @@
 </div>
 
 {{^isMainPage}}
+
+	
 	<div class="grid grid-cols-1 px-1 py-1 mx-auto md:px-0 px md:grid-cols-5">								
 		<!-- Categories -->
 		<div class="md:col-start-2 md:col-span-3">
 			{{{html-categories}}}
 		</div>
 	</div>
+
+
+	
 {{/isMainPage}}
 				
+
+
 {{>Footer}}
 
-<!-- Open Graph / Facebook -->
-<meta property=“og:type” content=“website”>
-<meta property=“og:url” content=“https://metatags.io/”>
-<meta property=“og:title” content=“Lenipedia - All about VP Leni Robredo”>
-<meta property=“og:description” content=“Lenipedia provides a one-stop resource for anything and everything Leni - from her family life to educational background to her life as a public servant.“>
-<meta property=“og:image” content=“https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png”>
-<!-- Twitter -->
-<meta property=“twitter:card” content=“summary_large_image”>
-<meta property=“twitter:url” content=“https://metatags.io/”>
-<meta property=“twitter:title” content=“Lenipedia - All about VP Leni Robredo”>
-<meta property=“twitter:description” content=“Lenipedia provides a one-stop resource for anything and everything Leni - from her family life to educational background to her life as a public servant.“>
-<meta property=“twitter:image” content=“https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png”>
