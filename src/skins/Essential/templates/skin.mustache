@@ -1,0 +1,110 @@
+<div id="mw-wrapper" class="min-h-screen">
+	{{>Navigation}}
+	<main class="mt-16 md:mt-18">
+		{{>Hero}}
+		{{#showPageToolbar}}
+			<div class="flex flex-col text-center bg-gray-100 flex-items-center">
+				<ul class="flex flex-row gap-4 mx-auto" 
+					x-data="{
+						action: '',
+						params: null
+					}"
+					x-init="
+						params = new URLSearchParams(window.location.search.substring(1));
+						action = params.get('action') || ''
+					"
+				>
+					<li class="px-2 py-2" x-bind:class="{ 'border-t-4 border-pink-600': action == '' }">
+						<a @click="action=''; sessionStorage.setItem('x-action', '');"  
+							href="/index.php?title={{title}}"
+						>
+							Read
+						</a>
+					</li>
+					<li class="px-2 py-2" x-bind:class="{ 'border-t-4 border-pink-600': action == 'history' }">
+						<a @click="action='history'; sessionStorage.setItem('x-action', 'history');"
+							href="/index.php?title={{title}}&action=history"
+						>
+							History
+						</a>
+					</li>
+					<li id="ca-ve-edit" class="px-2 py-2" x-bind:class="{ 'border-t-4 border-pink-600': action == 'tinymceedit' }">
+						<a @click="veaction='edit'; sessionStorage.setItem('x-action', 'tinymceedit');"
+							href="/index.php?title={{title}}&action=tinymceedit"
+						>
+							Edit
+						</a>
+					</li>
+				</ul>
+			</div>
+		{{/showPageToolbar}}
+		
+		{{#isMainPage}}
+			{{!}}{{#links}}{{>Components/Card}}{{/links}}	
+		{{/isMainPage}}
+		
+		{{^isMainPage}}
+			<div class="flex flex-col p-2 mx-auto text-center md:py-4 flex-items-center md:max-w-4xl">
+				<h1 id="firstHeading" class="mt-2 text-4xl font-bold font-black uppercase text-black-leni" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
+				<div class="flex flex-row mw-indicators mw-body-content">
+					{{#array-indicators}}
+							<!-- <div id="{{id}}" class="{{class}}">{{{html}}}</div> -->
+					{{/array-indicators}}
+				</div>
+			</div>
+			<div id="content" class="flex flex-col px-2 py-2 md:mx-auto md:pb-4 md:max-w-4xl gap-y-2">
+			
+				<div id="data-portlets">
+					{{#data-portlets}}
+			
+					{{/data-portlets}}
+				</div>
+				
+				<div id="siteNotice">
+					{{{html-site-notice}}}
+				</div>
+				
+				{{{html-user-message}}}
+
+				<!--
+				<div id="siteSub">{{msg-tagline}}</div>
+				-->
+				
+				<!-- After Content -->
+				<div class="min-w-full mx-auto mw-body-content">
+				
+					<div id="contentSub">
+						{{{html-subtitle}}}
+						{{{html-undelete-link}}}
+					</div>
+					
+					{{{html-body-content}}}
+					
+				</div>
+				<!-- After Content -->
+				{{{html-after-content}}}
+			
+			</div>
+		{{/isMainPage}}
+		
+	</main>
+</div>
+
+{{^isMainPage}}
+
+	
+	<div class="grid grid-cols-1 px-1 py-1 mx-auto md:px-0 px md:grid-cols-5">								
+		<!-- Categories -->
+		<div class="md:col-start-2 md:col-span-3">
+			{{{html-categories}}}
+		</div>
+	</div>
+
+
+	
+{{/isMainPage}}
+				
+
+
+{{>Footer}}
+

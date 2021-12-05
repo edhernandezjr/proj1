@@ -1,0 +1,19 @@
+<ul class="grid grid-cols-1 gap-2 px-2 py-16 mx-auto md:gap-4 lg:grid-cols-3 md:grid-cols-3 md:max-w-5xl md:px-0">  
+    {{#main}}
+        <li>
+            <div class="flex flex-col">
+                <h3 class="py-4 text-xl font-bold uppercase white text-black-leni y-2 -z-1">{{title}}</h3>
+                <div class="relative border rounded-lg">
+                    <a href="{{href}}" alt="{{alt}}" class="rounded-lg">
+                        <div class="aspect-w-16 aspect-h-9"></div>
+                        <img alt="{{alt}}" 
+                            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                            class="absolute inset-0 object-cover w-full h-full rounded-lg -z-1 lazyload"
+                            data-src="{{assetsPath}}{{title}}.jpeg"
+                        >
+                    </a>
+                </div>
+            </div>
+        </li>
+    {{/main}}
+</ul>

@@ -1,0 +1,9 @@
+<div class="flex items-center" role="banner">
+    <a href="{{link-mainpage}}" class="flex flex-row items-center">
+    {{#data-logos}}
+        {{#logoessential}}<img src="{{.}}" class="max-h-10">{{/logoessential}}
+        {{#wordmark}}<img src="{{src}}" width="{{width}}" height="{{height}}">{{/wordmark}}
+        {{^wordmark}}<h1 class="text-2xl font-bold font-black uppercase">{{msg-sitetitle}}</h1>{{/wordmark}}
+    {{/data-logos}}
+    </a>
+</div>

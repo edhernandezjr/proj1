@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .mw-parser-output {
+  @apply prose md:prose-xl max-w-screen-lg
+} */
+
+.wikitable {
+  @apply table-auto
+}
+
+#mw-pages .mw-content-ltr {
+  @apply prose my-4
+}
+
+.mw-spcontent :not(.mw-htmlform-ooui-wrapper) {
+  @apply prose
+}
+
+#mw-content-text .searchresults {
+  @apply prose
+}
+
+#mw-subcategories .mw-content-ltr {
+  @apply prose my-4
+}
+
+.mw-parser-output {
+  @apply prose mb-4
+}
+
+#pagehistory {
+  @apply prose-sm py-4
+}
+
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
+    color: #fff;
+    background-color: #ce1069;
+    border-color: #ce1069;
+}
+
+.oo-ui-buttonElement-framed.oo-ui-labelElement > .oo-ui-buttonElement-button {
+    padding-top: 6.5px;
+    padding-bottom: 6.5px;
+}
+
+#mw-normal-catlinks {
+    background-color: #F3F4F6;
+    padding: 6px;
+}
+#mw-normal-catlinks  {
+    display: flex;
+    flex-direction: row;
+}
+#mw-normal-catlinks  ul {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+    column-gap: 10px;
+}
+.mw-parser-output > h2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mw-parser-output .mw-editsection a {
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.mw-parser-output .mw-editsection span {
+  font-weight: 100;
+  font-size: 12px;
+}
+
+.mw-parser-output span.mw-editsection {
+  @apply float-right;
+}
+
+.mw-parser-output .mw-editsection a:nth-of-type(2),
+.mw-parser-output .mw-editsection .mw-editsection-divider {
+  display: none;
+}
+
+
+a.external.text {
+    background-color: #F3F4F6;
+    text-decoration: underline;
+    color:#ce1069;
+}
+
+a.new {
+    background-color: #F3F4F6;
+    text-decoration: underline;
+    color:#ce1069;
+}
+
+#mw-returnto a {
+  background-color: #F3F4F6;
+  text-decoration: underline;
+  color:#ce1069;
+}
+
+/* Print footer should be hidden by default in screen. */
+.printfooter {
+	display: none;
+}
+
+.mw-search-result-heading a {
+    background-color: #F3F4F6;
+    text-decoration: underline;
+    color:#ce1069;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+.mw-editform textarea {
+    display: none !important;
+   
+}
+.noarticletext,
+.mw-category-generated #mw-pages {
+  @apply prose-sm text-gray-800;
+}
+
+.mw-category-generated  #mw-pages .mw-content-ltr {
+  @appy prose md:prose-sm lg:prose-sm
+}
+#mw-pages h2:first-of-type {
+  @apply hidden;
+} 
+
+.mw-category-generated  #mw-pages .mw-content-ltr h3 {
+  display: none !important;
+}
+
+form.mw-htmlform {
+  @apply mx-auto;
+}
