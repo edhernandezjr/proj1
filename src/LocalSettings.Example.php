@@ -211,3 +211,96 @@ $wgUsePathInfo = true;
 # remove the creation of account
 $wgGroupPermissions['*']['createaccount'] = false;
 
+
+$wgResourceLinks = [
+	'main'  => [
+		[
+			'title' => 'About',
+			'alt' => '',
+			'href' => '/index.php?title=Category:About'
+		],
+		[
+				'title' => 'Accomplishments',
+				'alt' => '',
+				'href' => '/index.php?title=Category:Accomplishments'
+		],
+		[
+			    'title' => 'Pandemic Response',
+				'alt' => '',
+				'href' => '/index.php?title=Category:Pandemic Response'
+
+		],
+		[
+				'title' => 'Platforms',
+				'alt' => '',
+				'href' => '/index.php?title=Category:Platforms'
+
+		],
+		[
+				'title' => 'Kakampink Volunteers' ,
+				'alt' => '',
+				'href' => '/index.php?title=Category:Kakampink Volunteers'
+
+		],
+		[
+				'title' => 'Fact Checks',
+				'alt' => '',
+				'href' => '/index.php?title=Category:Fact Checks'
+
+		],
+		[
+				'title' => 'Robredo’s People Council',
+				'alt' => '',
+				'href' => '/index.php?title=Category:Robredo’s People Council'
+		]
+	],
+	'top' => [
+		[
+			'title' => 'Misc',
+			'alt' => '',
+			'href' => '/index.php?title=Misc'
+		],
+		[
+			'title' => 'Faq',
+			'alt' => '',
+			'href' => '/index.php?title=Faq'
+		],
+		[
+			'title' => 'Events',
+			'alt' => '',
+			'href' => '/index.php?title=Events'
+		]
+	]
+];
+
+$wgResourceOpenGraphMeta= [
+	[
+		'property' => 'og:image',
+		'content' => '',
+	],
+	[
+		'property' => 'twitter:image',
+		'content' => '',
+	],
+	[
+		'property' => 'twitter:domain',
+		'content' => '',
+	],
+	[
+		'property' => 'twitter:url',
+		'content' => '',
+	],
+	[
+		'property' => 'twitter:title',
+		'content' => '',
+	],
+	[
+		'property' => 'twitter:description',
+		'content' => '',
+	],
+	[
+		'property' => 'twitter:image',
+		'content' => '',
+	]
+];
+

@@ -733,68 +733,56 @@
 				fetch: function (callback) {
 				  if (editor.getContent() !== "") {
 					// Biography
-					// Congress
-					// Covid19 Response
-					// Early Career
-					// Edsa Years
-					// Fact Checking
-					// Vice Presidency
-					// Upcoming Events
-					// Reference Materials
-					// RPC Stories
-					var items = [
-					  {
-						type: 'choiceitem',
-						text: 'Biography',
-						value: '[[ Category: Biography]]'
-					  },
-					  {
-						type: 'choiceitem',
-						text: 'Congress',
-						value: '[[ Category: Congress]]'
-					  },
-					  {
-						type: 'choiceitem',
-						text: 'Covid19 Response',
-						value: '[[ Category: Covid19 Response]]'
-					  },
-					  {
-						type: 'choiceitem',
-						text: 'Early Career',
-						value: '[[ Category: Early Career]]'
-					  },
-					  {
-						type: 'choiceitem',
-						text: 'Edsa Years',
-						value: '[[ Category: Edsa Years]]'
-					  },
-					  {
-						type: 'choiceitem',
-						text: 'Fact Checking',
-						value: '[[ Category: Fact Checking]]'
-					  },
-					  {
-						type: 'choiceitem',
-						text: 'Vice Presidency',
-						value: '[[ Category: Vice Presidency]]'
-					  },
-					  {
-						type: 'choiceitem',
-						text: 'Upcoming Events',
-						value: '[[ Category: Upcoming Events]]'
-					  },
-					  {
-						type: 'choiceitem',
-						text: 'Reference Materials',
-						value: '[[ Category: Reference Materials ]]'
-					  },
-					  {
-						type: 'choiceitem',
-						text: 'RPC Stories',
-						value: '[[ Category: RPC Stories ]]'
-					  },
-					];
-					callback(items);
+					// About (Personal, Education, Public Service Work, Political Career)
+					// Accomplishments ( Personal, Public Service, Legislative, Executive)
+					// Pandemic Response (redundant category but has to be highlighted)
+					// Platforms (Economy, Education, Women Empowerment...)
+					// Kakampink Volunteers (Campaign contributions, Volunteer groups)
+					// Fact Checks (Issues on TROPA, MARTIAL LAW MYTHS, DUTERTE MYTHS, other fake news)
+					// Learn more (Official FB page, vlogs)
+					//
+
+					var ar = [];
+					var items2  = { 
+						'About': [
+							'Personal', 'Education', 'Public Service Work', 'Political Career'
+						],
+						'Accomplishments': [
+							'Personal', 'Public Service', 'Legislative', 'Executive'
+						],
+						'Pandemic Response': null,
+						'Platforms': [
+							'Economy', 'Education', 'Women Empowerment'
+						],
+						'Kakampink Volunteers': [
+							'Campaign Contributions', 'Volunteer Groups'
+						],
+						'Fact Checks': [
+							'Issues on TROPA', ' MARTIAL LAW MYTHS', 'DUTERTE MYTHS', 'Other Fake News'
+						],
+						'Learn more': [
+							'Official FB page',
+							'Vlogs'
+						]
+					}
+					for (const property in items2) {
+						ar.push({ 
+							type: 'choiceitem',
+							text: property,
+							value: '[[ Category: '+property+' ]]',
+						});
+						if (Array.isArray(items2[property])) {
+							var children = items2[property]
+							for (let i in children) {
+								ar.push({ 
+									type: 'choiceitem',
+									text: property +' / ' +children[i],
+									value: '[[ Category: '+children[i]+' ]]',
+								})
+							}
+						}
+					}
+					callback(ar);
 				  };
 				}
 			  });
